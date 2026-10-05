@@ -1,0 +1,758 @@
+<!doctype html>
+<html lang="fr" class="bg-zinc-950">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Omen — Le futur du coaching sportif, tout-en-un</title>
+  <meta name="description" content="Omen réunit une web app de gestion pour les coachs et une app mobile pour les athlètes : programmation, messagerie, nutrition et suivi des progrès." />
+  <meta name="theme-color" content="#09090b" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+          letterSpacing: { tightest: '-0.045em' },
+        },
+      },
+    };
+  </script>
+  <script src="https://unpkg.com/lucide@0.454.0/dist/umd/lucide.min.js" defer></script>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body class="bg-zinc-950 text-zinc-300 antialiased overflow-x-hidden">
+
+  <!-- ============================== HEADER ============================== -->
+  <header id="header" class="fixed inset-x-0 top-0 z-50 transition-colors duration-300">
+    <nav class="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8" aria-label="Navigation principale">
+      <a href="#" class="flex items-center gap-2.5 text-white" aria-label="Omen — accueil">
+        <span class="relative grid h-8 w-8 place-items-center rounded-lg border border-white/10 bg-gradient-to-b from-zinc-800 to-zinc-900 shadow-[0_0_20px_-4px_rgba(139,92,246,.6)]">
+          <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17 10 11l4 4 6-8" class="text-violet-400" stroke="currentColor"/></svg>
+        </span>
+        <span class="text-[15px] font-semibold tracking-tight">Omen</span>
+      </a>
+
+      <div class="hidden items-center gap-8 md:flex">
+        <a href="#fonctionnalites" class="text-sm text-zinc-400 transition hover:text-white">Fonctionnalités</a>
+        <a href="#produit" class="text-sm text-zinc-400 transition hover:text-white">Produit</a>
+        <a href="#tarifs" class="text-sm text-zinc-400 transition hover:text-white">Tarifs</a>
+        <a href="#faq" class="text-sm text-zinc-400 transition hover:text-white">FAQ</a>
+      </div>
+
+      <div class="hidden items-center gap-3 md:flex">
+        <a href="#" class="rounded-full px-4 py-2 text-sm text-zinc-300 transition hover:text-white">Se connecter</a>
+        <a href="#telecharger" class="group inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-medium text-zinc-950 transition hover:bg-zinc-200">
+          Télécharger l'app
+          <i data-lucide="arrow-down-to-line" class="h-4 w-4 transition group-hover:translate-y-0.5"></i>
+        </a>
+      </div>
+
+      <button id="menu-btn" class="grid h-10 w-10 place-items-center rounded-lg border border-zinc-800 text-zinc-300 md:hidden" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-menu">
+        <i data-lucide="menu" class="h-5 w-5"></i>
+      </button>
+    </nav>
+
+    <div id="mobile-menu" class="hidden border-t border-zinc-800/80 bg-zinc-950/95 backdrop-blur-xl md:hidden">
+      <div class="space-y-1 px-4 py-4">
+        <a href="#fonctionnalites" class="block rounded-lg px-3 py-2.5 text-sm text-zinc-300 hover:bg-zinc-900">Fonctionnalités</a>
+        <a href="#produit" class="block rounded-lg px-3 py-2.5 text-sm text-zinc-300 hover:bg-zinc-900">Produit</a>
+        <a href="#tarifs" class="block rounded-lg px-3 py-2.5 text-sm text-zinc-300 hover:bg-zinc-900">Tarifs</a>
+        <a href="#faq" class="block rounded-lg px-3 py-2.5 text-sm text-zinc-300 hover:bg-zinc-900">FAQ</a>
+        <div class="grid grid-cols-2 gap-3 pt-3">
+          <a href="#" class="rounded-full border border-zinc-800 px-4 py-2.5 text-center text-sm text-white">Se connecter</a>
+          <a href="#telecharger" class="rounded-full bg-white px-4 py-2.5 text-center text-sm font-medium text-zinc-950">Télécharger</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============================== HERO ============================== -->
+    <section class="relative isolate pt-32 sm:pt-40">
+      <div class="bg-grid pointer-events-none absolute inset-0 -z-10"></div>
+      <div class="glow pointer-events-none absolute left-1/2 top-0 -z-10 h-[520px] w-[900px] max-w-full -translate-x-1/2 -translate-y-1/3 opacity-70"></div>
+
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-3xl text-center">
+          <a href="#produit" class="reveal glass glow-border inline-flex items-center gap-2 rounded-full border border-zinc-800/80 px-3 py-1 text-xs text-zinc-300 transition hover:border-zinc-700">
+            <span class="relative flex h-1.5 w-1.5">
+              <span class="ping absolute inline-flex h-full w-full rounded-full bg-violet-400"></span>
+              <span class="relative inline-flex h-1.5 w-1.5 rounded-full bg-violet-400"></span>
+            </span>
+            Nouveau : suivi nutritionnel avancé
+            <i data-lucide="chevron-right" class="h-3.5 w-3.5 text-zinc-500"></i>
+          </a>
+
+          <h1 class="reveal mt-8 text-4xl font-semibold leading-[1.05] tracking-tightest sm:text-6xl lg:text-7xl">
+            <span class="text-gradient">Le futur du coaching sportif,</span><br class="hidden sm:block" />
+            <span class="text-accent-gradient"> tout-en-un.</span>
+          </h1>
+
+          <p class="reveal mx-auto mt-6 max-w-xl text-base leading-relaxed text-zinc-400 sm:text-lg">
+            Programmez, suivez et échangez avec vos athlètes depuis une seule plateforme.
+            Une web app pensée pour les coachs, une app mobile adorée par les athlètes.
+          </p>
+
+          <div class="reveal mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <a href="#tarifs" class="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-violet-500 px-6 py-3 text-sm font-medium text-white shadow-[0_0_0_1px_rgba(255,255,255,.1)_inset,0_8px_30px_-6px_rgba(139,92,246,.7)] transition hover:bg-violet-400 sm:w-auto">
+              Commencer gratuitement
+              <i data-lucide="arrow-right" class="h-4 w-4 transition group-hover:translate-x-0.5"></i>
+            </a>
+            <a href="#produit" class="inline-flex w-full items-center justify-center gap-2 rounded-full border border-zinc-800 bg-zinc-900/50 px-6 py-3 text-sm font-medium text-zinc-200 transition hover:border-zinc-700 hover:bg-zinc-900 sm:w-auto">
+              <i data-lucide="play" class="h-4 w-4"></i>
+              Voir la démo
+            </a>
+          </div>
+          <p class="reveal mt-4 text-xs text-zinc-500">14 jours d'essai Pro · Sans carte bancaire</p>
+        </div>
+
+        <!-- Visuel : dashboard + smartphone -->
+        <div class="reveal relative mx-auto mt-16 max-w-6xl sm:mt-20">
+          <div class="pointer-events-none absolute -inset-x-10 -top-10 bottom-0 -z-10 bg-gradient-to-b from-violet-500/10 via-transparent to-transparent blur-2xl"></div>
+
+          <!-- Dashboard web -->
+          <div class="glow-border overflow-hidden rounded-2xl border border-zinc-800/80 bg-zinc-900/60 shadow-2xl shadow-black/60 backdrop-blur">
+            <!-- Barre navigateur -->
+            <div class="flex items-center gap-2 border-b border-zinc-800/80 px-4 py-3">
+              <span class="h-2.5 w-2.5 rounded-full bg-zinc-700"></span>
+              <span class="h-2.5 w-2.5 rounded-full bg-zinc-700"></span>
+              <span class="h-2.5 w-2.5 rounded-full bg-zinc-700"></span>
+              <div class="mx-auto hidden items-center gap-1.5 rounded-md border border-zinc-800 bg-zinc-950/60 px-3 py-1 text-[11px] text-zinc-500 sm:flex">
+                <i data-lucide="lock" class="h-3 w-3"></i> app.omen.coach/dashboard
+              </div>
+            </div>
+
+            <div class="grid grid-cols-12">
+              <!-- Sidebar -->
+              <aside class="col-span-3 hidden border-r border-zinc-800/80 p-4 lg:block">
+                <div class="mb-6 flex items-center gap-2">
+                  <div class="h-7 w-7 rounded-full bg-gradient-to-br from-violet-400 to-cyan-300"></div>
+                  <div>
+                    <div class="text-xs font-medium text-white">Coach Léa</div>
+                    <div class="text-[10px] text-zinc-500">Plan Pro</div>
+                  </div>
+                </div>
+                <ul class="space-y-1 text-xs">
+                  <li class="flex items-center gap-2 rounded-md bg-zinc-800/70 px-2.5 py-2 text-white"><i data-lucide="layout-dashboard" class="h-3.5 w-3.5"></i>Vue d'ensemble</li>
+                  <li class="flex items-center gap-2 rounded-md px-2.5 py-2 text-zinc-400"><i data-lucide="users" class="h-3.5 w-3.5"></i>Athlètes <span class="ml-auto rounded bg-zinc-800 px-1.5 text-[10px]">24</span></li>
+                  <li class="flex items-center gap-2 rounded-md px-2.5 py-2 text-zinc-400"><i data-lucide="dumbbell" class="h-3.5 w-3.5"></i>Programmes</li>
+                  <li class="flex items-center gap-2 rounded-md px-2.5 py-2 text-zinc-400"><i data-lucide="message-circle" class="h-3.5 w-3.5"></i>Messages <span class="ml-auto h-1.5 w-1.5 rounded-full bg-violet-400"></span></li>
+                  <li class="flex items-center gap-2 rounded-md px-2.5 py-2 text-zinc-400"><i data-lucide="apple" class="h-3.5 w-3.5"></i>Nutrition</li>
+                  <li class="flex items-center gap-2 rounded-md px-2.5 py-2 text-zinc-400"><i data-lucide="settings" class="h-3.5 w-3.5"></i>Paramètres</li>
+                </ul>
+              </aside>
+
+              <!-- Contenu -->
+              <div class="col-span-12 p-4 sm:p-6 lg:col-span-9">
+                <div class="flex items-center justify-between">
+                  <div>
+                    <div class="text-[11px] text-zinc-500">Lundi 5 octobre</div>
+                    <div class="text-sm font-medium text-white sm:text-base">Bonjour Léa 👋</div>
+                  </div>
+                  <div class="hidden items-center gap-2 sm:flex">
+                    <div class="rounded-md border border-zinc-800 px-2.5 py-1.5 text-[11px] text-zinc-400">7 derniers jours</div>
+                    <div class="rounded-md bg-white px-2.5 py-1.5 text-[11px] font-medium text-zinc-950">+ Nouveau programme</div>
+                  </div>
+                </div>
+
+                <!-- KPIs -->
+                <div class="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-4">
+                  <div class="rounded-xl border border-zinc-800/80 bg-zinc-950/40 p-3">
+                    <div class="text-[10px] uppercase tracking-wider text-zinc-500">Athlètes actifs</div>
+                    <div class="mt-1 text-lg font-semibold text-white">24</div>
+                    <div class="text-[10px] text-emerald-400">+3 ce mois</div>
+                  </div>
+                  <div class="rounded-xl border border-zinc-800/80 bg-zinc-950/40 p-3">
+                    <div class="text-[10px] uppercase tracking-wider text-zinc-500">Séances validées</div>
+                    <div class="mt-1 text-lg font-semibold text-white">186</div>
+                    <div class="text-[10px] text-emerald-400">+12 %</div>
+                  </div>
+                  <div class="rounded-xl border border-zinc-800/80 bg-zinc-950/40 p-3">
+                    <div class="text-[10px] uppercase tracking-wider text-zinc-500">Adhérence</div>
+                    <div class="mt-1 text-lg font-semibold text-white">92 %</div>
+                    <div class="text-[10px] text-zinc-500">moyenne</div>
+                  </div>
+                  <div class="rounded-xl border border-zinc-800/80 bg-zinc-950/40 p-3">
+                    <div class="text-[10px] uppercase tracking-wider text-zinc-500">Revenus</div>
+                    <div class="mt-1 text-lg font-semibold text-white">3 480 €</div>
+                    <div class="text-[10px] text-emerald-400">+8 %</div>
+                  </div>
+                </div>
+
+                <div class="mt-4 grid gap-3 md:grid-cols-5">
+                  <!-- Graphique -->
+                  <div class="rounded-xl border border-zinc-800/80 bg-zinc-950/40 p-4 md:col-span-3">
+                    <div class="flex items-center justify-between">
+                      <div class="text-xs font-medium text-white">Volume d'entraînement</div>
+                      <div class="text-[10px] text-zinc-500">tonnes / semaine</div>
+                    </div>
+                    <div class="mt-4 flex h-32 items-end gap-2">
+                      <div class="bar w-full rounded-t bg-zinc-800" style="height:38%;animation-delay:.05s"></div>
+                      <div class="bar w-full rounded-t bg-zinc-800" style="height:52%;animation-delay:.1s"></div>
+                      <div class="bar w-full rounded-t bg-zinc-800" style="height:45%;animation-delay:.15s"></div>
+                      <div class="bar w-full rounded-t bg-zinc-800" style="height:63%;animation-delay:.2s"></div>
+                      <div class="bar w-full rounded-t bg-zinc-800" style="height:58%;animation-delay:.25s"></div>
+                      <div class="bar w-full rounded-t bg-zinc-800" style="height:72%;animation-delay:.3s"></div>
+                      <div class="bar w-full rounded-t bg-gradient-to-t from-violet-600 to-violet-400 shadow-[0_0_20px_rgba(139,92,246,.5)]" style="height:88%;animation-delay:.35s"></div>
+                      <div class="bar w-full rounded-t bg-zinc-800/60" style="height:30%;animation-delay:.4s"></div>
+                    </div>
+                  </div>
+                  <!-- Activité récente -->
+                  <div class="rounded-xl border border-zinc-800/80 bg-zinc-950/40 p-4 md:col-span-2">
+                    <div class="text-xs font-medium text-white">Activité récente</div>
+                    <ul class="mt-3 space-y-3 text-[11px]">
+                      <li class="flex items-center gap-2.5">
+                        <span class="grid h-6 w-6 place-items-center rounded-full bg-violet-500/15 text-violet-300"><i data-lucide="check" class="h-3 w-3"></i></span>
+                        <span class="text-zinc-300">Thomas a terminé <span class="text-white">Push A</span></span>
+                        <span class="ml-auto text-zinc-600">2 min</span>
+                      </li>
+                      <li class="flex items-center gap-2.5">
+                        <span class="grid h-6 w-6 place-items-center rounded-full bg-cyan-500/15 text-cyan-300"><i data-lucide="trophy" class="h-3 w-3"></i></span>
+                        <span class="text-zinc-300">Inès : nouveau PR squat</span>
+                        <span class="ml-auto text-zinc-600">1 h</span>
+                      </li>
+                      <li class="flex items-center gap-2.5">
+                        <span class="grid h-6 w-6 place-items-center rounded-full bg-emerald-500/15 text-emerald-300"><i data-lucide="scale" class="h-3 w-3"></i></span>
+                        <span class="text-zinc-300">Hugo : −0,8 kg</span>
+                        <span class="ml-auto text-zinc-600">3 h</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Smartphone -->
+          <div class="float absolute -bottom-10 right-2 w-[150px] sm:-bottom-12 sm:right-6 sm:w-[210px] lg:-right-6 lg:w-[240px]">
+            <div class="relative rounded-[2.2rem] border border-zinc-700/80 bg-zinc-950 p-2 shadow-[0_30px_80px_-10px_rgba(0,0,0,.9),0_0_60px_-20px_rgba(139,92,246,.6)]">
+              <div class="overflow-hidden rounded-[1.8rem] border border-zinc-800 bg-gradient-to-b from-zinc-900 to-zinc-950">
+                <div class="flex justify-center pt-2"><div class="h-4 w-16 rounded-full bg-black"></div></div>
+                <div class="px-3 pb-4 pt-3 sm:px-4">
+                  <div class="text-[9px] text-zinc-500 sm:text-[10px]">Aujourd'hui · Push A</div>
+                  <div class="text-xs font-semibold text-white sm:text-sm">Développé couché</div>
+                  <div class="mt-3 space-y-1.5">
+                    <div class="flex items-center justify-between rounded-lg border border-zinc-800 bg-zinc-900/60 px-2 py-1.5 text-[9px] sm:text-[10px]"><span class="text-zinc-500">1</span><span class="text-white">80 kg × 8</span><span class="grid h-4 w-4 place-items-center rounded bg-violet-500 text-white"><i data-lucide="check" class="h-2.5 w-2.5"></i></span></div>
+                    <div class="flex items-center justify-between rounded-lg border border-zinc-800 bg-zinc-900/60 px-2 py-1.5 text-[9px] sm:text-[10px]"><span class="text-zinc-500">2</span><span class="text-white">80 kg × 8</span><span class="grid h-4 w-4 place-items-center rounded bg-violet-500 text-white"><i data-lucide="check" class="h-2.5 w-2.5"></i></span></div>
+                    <div class="flex items-center justify-between rounded-lg border border-violet-500/50 bg-violet-500/10 px-2 py-1.5 text-[9px] sm:text-[10px]"><span class="text-violet-300">3</span><span class="text-white">82,5 kg × 6</span><span class="h-4 w-4 rounded border border-zinc-600"></span></div>
+                  </div>
+                  <div class="mt-3 rounded-lg border border-zinc-800 bg-zinc-900/60 p-2">
+                    <div class="flex items-center justify-between text-[9px] text-zinc-500 sm:text-[10px]"><span>Repos</span><span class="font-medium text-white">01:24</span></div>
+                    <div class="mt-1.5 h-1 rounded-full bg-zinc-800"><div class="h-1 w-3/5 rounded-full bg-gradient-to-r from-violet-500 to-cyan-400"></div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== SOCIAL PROOF ============================== -->
+    <section class="relative pb-16 pt-28 sm:pt-32">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <p class="reveal text-center text-xs font-medium uppercase tracking-[0.2em] text-zinc-500">Adopté par les meilleurs coachs indépendants et studios</p>
+        <div class="marquee reveal mt-8 overflow-hidden">
+          <div class="marquee-track flex w-max items-center gap-14 pr-14 text-zinc-500">
+            <!-- Liste dupliquée pour une boucle continue -->
+            <span class="flex items-center gap-2 text-lg font-semibold tracking-tight"><i data-lucide="mountain" class="h-5 w-5"></i>Summit Lab</span>
+            <span class="flex items-center gap-2 text-lg font-semibold italic tracking-tight"><i data-lucide="flame" class="h-5 w-5"></i>IronHouse</span>
+            <span class="flex items-center gap-2 text-lg font-light tracking-[0.3em]">NORTHFIT</span>
+            <span class="flex items-center gap-2 text-lg font-semibold tracking-tight"><i data-lucide="zap" class="h-5 w-5"></i>Voltage</span>
+            <span class="flex items-center gap-2 font-serif text-lg italic">Atelier Forme</span>
+            <span class="flex items-center gap-2 text-lg font-bold tracking-tighter"><i data-lucide="hexagon" class="h-5 w-5"></i>HYBRID.CO</span>
+            <span class="flex items-center gap-2 text-lg font-medium tracking-tight"><i data-lucide="wind" class="h-5 w-5"></i>Endura</span>
+            <span class="flex items-center gap-2 text-lg font-semibold tracking-tight"><i data-lucide="mountain" class="h-5 w-5"></i>Summit Lab</span>
+            <span class="flex items-center gap-2 text-lg font-semibold italic tracking-tight"><i data-lucide="flame" class="h-5 w-5"></i>IronHouse</span>
+            <span class="flex items-center gap-2 text-lg font-light tracking-[0.3em]">NORTHFIT</span>
+            <span class="flex items-center gap-2 text-lg font-semibold tracking-tight"><i data-lucide="zap" class="h-5 w-5"></i>Voltage</span>
+            <span class="flex items-center gap-2 font-serif text-lg italic">Atelier Forme</span>
+            <span class="flex items-center gap-2 text-lg font-bold tracking-tighter"><i data-lucide="hexagon" class="h-5 w-5"></i>HYBRID.CO</span>
+            <span class="flex items-center gap-2 text-lg font-medium tracking-tight"><i data-lucide="wind" class="h-5 w-5"></i>Endura</span>
+          </div>
+        </div>
+
+        <dl class="reveal mx-auto mt-16 grid max-w-4xl grid-cols-2 gap-px overflow-hidden rounded-2xl border border-zinc-800/80 bg-zinc-800/80 sm:grid-cols-4">
+          <div class="bg-zinc-950 p-6 text-center">
+            <dt class="text-xs text-zinc-500">Coachs</dt>
+            <dd class="mt-1 text-2xl font-semibold tracking-tight text-white">2 500+</dd>
+          </div>
+          <div class="bg-zinc-950 p-6 text-center">
+            <dt class="text-xs text-zinc-500">Athlètes suivis</dt>
+            <dd class="mt-1 text-2xl font-semibold tracking-tight text-white">48 000</dd>
+          </div>
+          <div class="bg-zinc-950 p-6 text-center">
+            <dt class="text-xs text-zinc-500">Séances validées</dt>
+            <dd class="mt-1 text-2xl font-semibold tracking-tight text-white">3,2 M</dd>
+          </div>
+          <div class="bg-zinc-950 p-6 text-center">
+            <dt class="text-xs text-zinc-500">Note App Store</dt>
+            <dd class="mt-1 flex items-center justify-center gap-1 text-2xl font-semibold tracking-tight text-white">4,9 <i data-lucide="star" class="h-4 w-4 fill-violet-400 text-violet-400"></i></dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <div class="hairline mx-auto max-w-5xl"></div>
+
+    <!-- ============================== FONCTIONNALITÉS ============================== -->
+    <section id="fonctionnalites" class="relative scroll-mt-20 py-24 sm:py-32">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-2xl text-center">
+          <p class="reveal text-sm font-medium text-violet-400">Fonctionnalités</p>
+          <h2 class="reveal mt-3 text-3xl font-semibold tracking-tight text-gradient sm:text-5xl">Tout ce dont vous avez besoin. Rien de superflu.</h2>
+          <p class="reveal mt-5 text-zinc-400">Trois piliers pour accompagner vos athlètes de la première séance jusqu'à leurs objectifs.</p>
+        </div>
+
+        <div class="mt-16 grid gap-6 md:grid-cols-3">
+          <!-- Feature 1 -->
+          <article class="reveal spotlight glass glow-border relative overflow-hidden rounded-2xl border border-zinc-800/80 p-6 transition duration-300 hover:-translate-y-1 hover:border-zinc-700 sm:p-8">
+            <div class="grid h-11 w-11 place-items-center rounded-xl border border-zinc-800 bg-zinc-900 text-violet-300 shadow-[0_0_24px_-6px_rgba(139,92,246,.7)]">
+              <i data-lucide="dumbbell" class="h-5 w-5"></i>
+            </div>
+            <h3 class="mt-6 text-lg font-medium text-white">Programmation &amp; suivi des séances</h3>
+            <p class="mt-2 text-sm leading-relaxed text-zinc-400">Construisez des cycles PPL, Upper/Lower ou Full Body en quelques clics. Progression automatique, RPE, tempo et historique de chaque série.</p>
+            <div class="mt-6 flex flex-wrap gap-2">
+              <span class="rounded-full border border-zinc-800 bg-zinc-900/60 px-2.5 py-1 text-[11px] text-zinc-400">PPL</span>
+              <span class="rounded-full border border-zinc-800 bg-zinc-900/60 px-2.5 py-1 text-[11px] text-zinc-400">Upper / Lower</span>
+              <span class="rounded-full border border-zinc-800 bg-zinc-900/60 px-2.5 py-1 text-[11px] text-zinc-400">Full Body</span>
+              <span class="rounded-full border border-zinc-800 bg-zinc-900/60 px-2.5 py-1 text-[11px] text-zinc-400">Périodisation</span>
+            </div>
+          </article>
+
+          <!-- Feature 2 -->
+          <article class="reveal spotlight glass glow-border relative overflow-hidden rounded-2xl border border-zinc-800/80 p-6 transition duration-300 hover:-translate-y-1 hover:border-zinc-700 sm:p-8" style="transition-delay:.05s">
+            <div class="grid h-11 w-11 place-items-center rounded-xl border border-zinc-800 bg-zinc-900 text-cyan-300 shadow-[0_0_24px_-6px_rgba(34,211,238,.6)]">
+              <i data-lucide="messages-square" class="h-5 w-5"></i>
+            </div>
+            <h3 class="mt-6 text-lg font-medium text-white">Messagerie en temps réel</h3>
+            <p class="mt-2 text-sm leading-relaxed text-zinc-400">Un espace d'échange privé avec chaque athlète : messages, vocaux, vidéos de technique annotées et check-ins hebdomadaires.</p>
+            <div class="mt-6 space-y-2">
+              <div class="w-4/5 rounded-2xl rounded-bl-sm border border-zinc-800 bg-zinc-900/70 px-3 py-2 text-xs text-zinc-300">Ma 3e série était dure, je garde la charge ?</div>
+              <div class="ml-auto w-3/4 rounded-2xl rounded-br-sm bg-violet-500/90 px-3 py-2 text-xs text-white">Oui, vise RPE 8 et filme-moi la dernière 🎥</div>
+            </div>
+          </article>
+
+          <!-- Feature 3 -->
+          <article class="reveal spotlight glass glow-border relative overflow-hidden rounded-2xl border border-zinc-800/80 p-6 transition duration-300 hover:-translate-y-1 hover:border-zinc-700 sm:p-8" style="transition-delay:.1s">
+            <div class="grid h-11 w-11 place-items-center rounded-xl border border-zinc-800 bg-zinc-900 text-emerald-300 shadow-[0_0_24px_-6px_rgba(52,211,153,.6)]">
+              <i data-lucide="activity" class="h-5 w-5"></i>
+            </div>
+            <h3 class="mt-6 text-lg font-medium text-white">Nutrition &amp; progrès physiques</h3>
+            <p class="mt-2 text-sm leading-relaxed text-zinc-400">Objectifs de macros, journal alimentaire, poids, mensurations et photos avant/après. Visualisez l'évolution sur des graphiques clairs.</p>
+            <div class="mt-6 space-y-2.5">
+              <div>
+                <div class="flex justify-between text-[11px] text-zinc-500"><span>Protéines</span><span class="text-zinc-300">142 / 160 g</span></div>
+                <div class="mt-1 h-1.5 rounded-full bg-zinc-800"><div class="h-1.5 w-[89%] rounded-full bg-violet-400"></div></div>
+              </div>
+              <div>
+                <div class="flex justify-between text-[11px] text-zinc-500"><span>Glucides</span><span class="text-zinc-300">210 / 280 g</span></div>
+                <div class="mt-1 h-1.5 rounded-full bg-zinc-800"><div class="h-1.5 w-[75%] rounded-full bg-cyan-400"></div></div>
+              </div>
+              <div>
+                <div class="flex justify-between text-[11px] text-zinc-500"><span>Lipides</span><span class="text-zinc-300">48 / 70 g</span></div>
+                <div class="mt-1 h-1.5 rounded-full bg-zinc-800"><div class="h-1.5 w-[68%] rounded-full bg-emerald-400"></div></div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== VITRINE PRODUIT ============================== -->
+    <section id="produit" class="relative scroll-mt-20 py-24 sm:py-32">
+      <div class="pointer-events-none absolute inset-x-0 top-0 -z-10 h-full bg-gradient-to-b from-transparent via-violet-950/10 to-transparent"></div>
+
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-2xl text-center">
+          <p class="reveal text-sm font-medium text-violet-400">Un écosystème, deux expériences</p>
+          <h2 class="reveal mt-3 text-3xl font-semibold tracking-tight text-gradient sm:text-5xl">Conçu pour chaque côté de la relation.</h2>
+        </div>
+
+        <!-- App mobile — athlète -->
+        <div id="telecharger" class="mt-20 grid scroll-mt-24 items-center gap-12 lg:grid-cols-2 lg:gap-20">
+          <div class="reveal order-2 lg:order-1">
+            <span class="inline-flex items-center gap-2 rounded-full border border-zinc-800 bg-zinc-900/60 px-3 py-1 text-xs text-zinc-300">
+              <i data-lucide="smartphone" class="h-3.5 w-3.5 text-violet-400"></i> App mobile · Athlètes
+            </span>
+            <h3 class="mt-5 text-2xl font-semibold tracking-tight text-white sm:text-4xl">Une séance. Zéro friction.</h3>
+            <p class="mt-4 max-w-lg text-zinc-400">Vos athlètes ouvrent l'app, voient leur séance du jour et valident chaque série d'un geste. Charges suggérées, minuteur de repos et historique intégré.</p>
+            <ul class="mt-8 space-y-4">
+              <li class="flex gap-3">
+                <span class="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full border border-violet-500/30 bg-violet-500/10 text-violet-300"><i data-lucide="check" class="h-3.5 w-3.5"></i></span>
+                <div><div class="text-sm font-medium text-white">Validation des séries en un tap</div><div class="text-sm text-zinc-500">Poids, reps et RPE pré-remplis à partir de la dernière séance.</div></div>
+              </li>
+              <li class="flex gap-3">
+                <span class="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full border border-violet-500/30 bg-violet-500/10 text-violet-300"><i data-lucide="history" class="h-3.5 w-3.5"></i></span>
+                <div><div class="text-sm font-medium text-white">Historique &amp; records personnels</div><div class="text-sm text-zinc-500">Chaque exercice garde la trace de vos performances et PR.</div></div>
+              </li>
+              <li class="flex gap-3">
+                <span class="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full border border-violet-500/30 bg-violet-500/10 text-violet-300"><i data-lucide="wifi-off" class="h-3.5 w-3.5"></i></span>
+                <div><div class="text-sm font-medium text-white">Fonctionne hors-ligne</div><div class="text-sm text-zinc-500">Synchronisation automatique dès le retour du réseau.</div></div>
+              </li>
+            </ul>
+            <div class="mt-10 flex flex-wrap gap-3">
+              <a href="#" class="inline-flex items-center gap-3 rounded-xl border border-zinc-800 bg-zinc-900/60 px-4 py-2.5 transition hover:border-zinc-700 hover:bg-zinc-900">
+                <svg viewBox="0 0 24 24" class="h-6 w-6 fill-white" aria-hidden="true"><path d="M16.37 1.43c0 1.14-.42 2.2-1.25 3.05-.83.86-1.84 1.36-2.93 1.27-.02-.11-.03-.23-.03-.35 0-1.09.48-2.2 1.27-3.03.4-.42.9-.77 1.5-1.04.6-.27 1.17-.42 1.71-.44.02.18.03.36.03.54zM20.6 17.3c-.33.77-.73 1.48-1.19 2.14-.63.89-1.14 1.51-1.54 1.85-.61.56-1.27.85-1.97.87-.5 0-1.11-.14-1.82-.43-.71-.29-1.36-.43-1.96-.43-.63 0-1.3.14-2.02.43-.72.29-1.3.44-1.74.46-.67.03-1.35-.27-2.02-.9-.43-.37-.96-1.01-1.6-1.92-.69-.96-1.25-2.08-1.69-3.36-.47-1.38-.71-2.72-.71-4.02 0-1.49.32-2.77.97-3.85.51-.86 1.18-1.55 2.03-2.05.85-.5 1.77-.76 2.76-.77.54 0 1.25.17 2.13.5.88.33 1.44.5 1.69.5.18 0 .82-.2 1.9-.59 1.02-.37 1.88-.52 2.59-.46 1.92.15 3.36.91 4.31 2.27-1.72 1.04-2.57 2.5-2.55 4.38.02 1.46.54 2.68 1.58 3.65.47.45 1 .8 1.58 1.04-.13.37-.26.72-.4 1.06z"/></svg>
+                <span class="text-left leading-tight"><span class="block text-[10px] text-zinc-500">Télécharger sur</span><span class="text-sm font-medium text-white">l'App Store</span></span>
+              </a>
+              <a href="#" class="inline-flex items-center gap-3 rounded-xl border border-zinc-800 bg-zinc-900/60 px-4 py-2.5 transition hover:border-zinc-700 hover:bg-zinc-900">
+                <svg viewBox="0 0 24 24" class="h-6 w-6" aria-hidden="true"><path fill="#a78bfa" d="M3.6 1.8 13.8 12 3.6 22.2c-.4-.2-.6-.6-.6-1.1V2.9c0-.5.2-.9.6-1.1z"/><path fill="#67e8f9" d="m17.1 8.7-3.3 3.3-10.2-10.2c.1 0 .2-.1.3-.1.3 0 .6.1.9.2l12.3 6.8z"/><path fill="#34d399" d="m17.1 15.3-12.3 6.8c-.3.2-.6.2-.9.2-.1 0-.2 0-.3-.1L13.8 12l3.3 3.3z"/><path fill="#f0abfc" d="m20.6 13.4-3.5 1.9-3.3-3.3 3.3-3.3 3.5 1.9c.9.5.9 2.3 0 2.8z"/></svg>
+                <span class="text-left leading-tight"><span class="block text-[10px] text-zinc-500">Disponible sur</span><span class="text-sm font-medium text-white">Google Play</span></span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Mockup mobile -->
+          <div class="reveal order-1 flex justify-center lg:order-2">
+            <div class="relative">
+              <div class="glow pointer-events-none absolute inset-0 -z-10 scale-125"></div>
+              <div class="w-[280px] rounded-[2.75rem] border border-zinc-700/80 bg-zinc-950 p-2.5 shadow-[0_40px_100px_-20px_rgba(0,0,0,.9)] sm:w-[300px]">
+                <div class="overflow-hidden rounded-[2.25rem] border border-zinc-800 bg-gradient-to-b from-zinc-900 to-zinc-950">
+                  <div class="flex items-center justify-between px-6 pt-3 text-[10px] font-medium text-white">
+                    <span>9:41</span><div class="h-5 w-20 rounded-full bg-black"></div><span class="flex gap-1"><i data-lucide="signal" class="h-3 w-3"></i><i data-lucide="battery-full" class="h-3 w-3"></i></span>
+                  </div>
+                  <div class="px-5 pb-6 pt-5">
+                    <div class="flex items-center justify-between">
+                      <div>
+                        <div class="text-[11px] text-zinc-500">Semaine 3 · Jour 1</div>
+                        <div class="text-lg font-semibold text-white">Push A</div>
+                      </div>
+                      <div class="grid h-9 w-9 place-items-center rounded-full border border-zinc-800 bg-zinc-900 text-zinc-400"><i data-lucide="more-horizontal" class="h-4 w-4"></i></div>
+                    </div>
+                    <div class="mt-4 h-1 rounded-full bg-zinc-800"><div class="h-1 w-2/5 rounded-full bg-gradient-to-r from-violet-500 to-cyan-400"></div></div>
+
+                    <div class="mt-5 rounded-2xl border border-zinc-800 bg-zinc-900/60 p-4">
+                      <div class="flex items-center justify-between">
+                        <div class="text-sm font-medium text-white">Développé incliné</div>
+                        <span class="rounded-full bg-violet-500/15 px-2 py-0.5 text-[10px] text-violet-300">RPE 8</span>
+                      </div>
+                      <div class="mt-3 grid grid-cols-[20px_1fr_1fr_28px] items-center gap-2 text-[10px] uppercase tracking-wider text-zinc-600">
+                        <span>#</span><span>kg</span><span>reps</span><span></span>
+                      </div>
+                      <div class="mt-1 space-y-1.5 text-sm">
+                        <div class="grid grid-cols-[20px_1fr_1fr_28px] items-center gap-2">
+                          <span class="text-xs text-zinc-500">1</span><span class="rounded-md bg-zinc-950/70 px-2 py-1 text-white">30</span><span class="rounded-md bg-zinc-950/70 px-2 py-1 text-white">10</span>
+                          <button data-set data-done="true" class="grid h-7 w-7 place-items-center rounded-md border border-violet-400 bg-violet-500 text-white transition" aria-label="Valider la série 1"><i data-lucide="check" class="h-3.5 w-3.5"></i></button>
+                        </div>
+                        <div class="grid grid-cols-[20px_1fr_1fr_28px] items-center gap-2">
+                          <span class="text-xs text-zinc-500">2</span><span class="rounded-md bg-zinc-950/70 px-2 py-1 text-white">30</span><span class="rounded-md bg-zinc-950/70 px-2 py-1 text-white">9</span>
+                          <button data-set data-done="true" class="grid h-7 w-7 place-items-center rounded-md border border-violet-400 bg-violet-500 text-white transition" aria-label="Valider la série 2"><i data-lucide="check" class="h-3.5 w-3.5"></i></button>
+                        </div>
+                        <div class="grid grid-cols-[20px_1fr_1fr_28px] items-center gap-2">
+                          <span class="text-xs text-zinc-500">3</span><span class="rounded-md bg-zinc-950/70 px-2 py-1 text-zinc-400">30</span><span class="rounded-md bg-zinc-950/70 px-2 py-1 text-zinc-400">8</span>
+                          <button data-set data-done="false" class="grid h-7 w-7 place-items-center rounded-md border border-zinc-700 text-transparent transition hover:border-zinc-500" aria-label="Valider la série 3"><i data-lucide="check" class="h-3.5 w-3.5"></i></button>
+                        </div>
+                      </div>
+                      <p class="mt-3 text-[10px] text-zinc-600">Touchez ✓ pour valider une série</p>
+                    </div>
+
+                    <div class="mt-3 flex items-center gap-3 rounded-2xl border border-zinc-800 bg-zinc-900/40 p-3">
+                      <div class="grid h-9 w-9 place-items-center rounded-xl bg-zinc-800 text-zinc-300"><i data-lucide="history" class="h-4 w-4"></i></div>
+                      <div class="text-xs"><div class="text-white">Dernière fois : 27,5 kg × 10</div><div class="text-emerald-400">+2,5 kg 🔥</div></div>
+                    </div>
+
+                    <div class="mt-5 rounded-full bg-white py-3 text-center text-sm font-medium text-zinc-950">Exercice suivant</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Web app — coach -->
+        <div class="mt-32 grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
+          <!-- Mockup web -->
+          <div class="reveal relative">
+            <div class="glow pointer-events-none absolute inset-0 -z-10 scale-110 opacity-60"></div>
+            <div class="glow-border overflow-hidden rounded-2xl border border-zinc-800/80 bg-zinc-900/60 shadow-2xl shadow-black/60">
+              <div class="flex items-center justify-between border-b border-zinc-800/80 px-5 py-3.5">
+                <div class="flex items-center gap-2 text-sm font-medium text-white"><i data-lucide="layers" class="h-4 w-4 text-violet-400"></i>Programme · Hypertrophie PPL</div>
+                <div class="hidden rounded-md border border-zinc-800 px-2 py-1 text-[11px] text-zinc-400 sm:block">8 semaines</div>
+              </div>
+              <div class="grid grid-cols-3 gap-px bg-zinc-800/80 text-xs">
+                <div class="bg-zinc-950/80 p-3 sm:p-4">
+                  <div class="mb-3 flex items-center justify-between"><span class="font-medium text-white">Push</span><span class="text-[10px] text-zinc-600">Lun</span></div>
+                  <div class="space-y-2">
+                    <div class="rounded-lg border border-zinc-800 bg-zinc-900 p-2"><div class="text-zinc-200">Développé couché</div><div class="text-[10px] text-zinc-500">4 × 6–8</div></div>
+                    <div class="rounded-lg border border-zinc-800 bg-zinc-900 p-2"><div class="text-zinc-200">Dév. militaire</div><div class="text-[10px] text-zinc-500">3 × 8–10</div></div>
+                    <div class="rounded-lg border border-violet-500/40 bg-violet-500/10 p-2 shadow-[0_0_20px_-6px_rgba(139,92,246,.6)]"><div class="text-white">Dips lestés</div><div class="text-[10px] text-violet-300">3 × 10</div></div>
+                  </div>
+                </div>
+                <div class="bg-zinc-950/80 p-3 sm:p-4">
+                  <div class="mb-3 flex items-center justify-between"><span class="font-medium text-white">Pull</span><span class="text-[10px] text-zinc-600">Mer</span></div>
+                  <div class="space-y-2">
+                    <div class="rounded-lg border border-zinc-800 bg-zinc-900 p-2"><div class="text-zinc-200">Tractions</div><div class="text-[10px] text-zinc-500">4 × 6–8</div></div>
+                    <div class="rounded-lg border border-zinc-800 bg-zinc-900 p-2"><div class="text-zinc-200">Rowing barre</div><div class="text-[10px] text-zinc-500">3 × 8–10</div></div>
+                    <div class="rounded-lg border border-dashed border-zinc-700 p-2 text-center text-zinc-500">+ Ajouter</div>
+                  </div>
+                </div>
+                <div class="bg-zinc-950/80 p-3 sm:p-4">
+                  <div class="mb-3 flex items-center justify-between"><span class="font-medium text-white">Legs</span><span class="text-[10px] text-zinc-600">Ven</span></div>
+                  <div class="space-y-2">
+                    <div class="rounded-lg border border-zinc-800 bg-zinc-900 p-2"><div class="text-zinc-200">Squat</div><div class="text-[10px] text-zinc-500">5 × 5</div></div>
+                    <div class="rounded-lg border border-zinc-800 bg-zinc-900 p-2"><div class="text-zinc-200">SDT roumain</div><div class="text-[10px] text-zinc-500">3 × 8</div></div>
+                    <div class="rounded-lg border border-zinc-800 bg-zinc-900 p-2"><div class="text-zinc-200">Fentes</div><div class="text-[10px] text-zinc-500">3 × 12</div></div>
+                  </div>
+                </div>
+              </div>
+              <!-- Clients -->
+              <div class="border-t border-zinc-800/80 p-4 sm:p-5">
+                <div class="mb-3 text-xs font-medium text-white">Clients assignés</div>
+                <div class="space-y-2">
+                  <div class="flex items-center gap-3 rounded-lg border border-zinc-800/80 bg-zinc-950/40 px-3 py-2 text-xs">
+                    <div class="h-6 w-6 rounded-full bg-gradient-to-br from-violet-400 to-fuchsia-400"></div>
+                    <span class="text-white">Thomas R.</span>
+                    <span class="ml-auto hidden text-zinc-500 sm:inline">Semaine 3/8</span>
+                    <span class="rounded-full bg-emerald-500/10 px-2 py-0.5 text-[10px] text-emerald-400">À jour</span>
+                  </div>
+                  <div class="flex items-center gap-3 rounded-lg border border-zinc-800/80 bg-zinc-950/40 px-3 py-2 text-xs">
+                    <div class="h-6 w-6 rounded-full bg-gradient-to-br from-cyan-400 to-blue-500"></div>
+                    <span class="text-white">Inès M.</span>
+                    <span class="ml-auto hidden text-zinc-500 sm:inline">Semaine 5/8</span>
+                    <span class="rounded-full bg-emerald-500/10 px-2 py-0.5 text-[10px] text-emerald-400">À jour</span>
+                  </div>
+                  <div class="flex items-center gap-3 rounded-lg border border-zinc-800/80 bg-zinc-950/40 px-3 py-2 text-xs">
+                    <div class="h-6 w-6 rounded-full bg-gradient-to-br from-amber-300 to-orange-500"></div>
+                    <span class="text-white">Hugo B.</span>
+                    <span class="ml-auto hidden text-zinc-500 sm:inline">Semaine 2/8</span>
+                    <span class="rounded-full bg-amber-500/10 px-2 py-0.5 text-[10px] text-amber-400">1 séance manquée</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="reveal">
+            <span class="inline-flex items-center gap-2 rounded-full border border-zinc-800 bg-zinc-900/60 px-3 py-1 text-xs text-zinc-300">
+              <i data-lucide="monitor" class="h-3.5 w-3.5 text-violet-400"></i> Web app · Coachs
+            </span>
+            <h3 class="mt-5 text-2xl font-semibold tracking-tight text-white sm:text-4xl">Votre cockpit de coaching.</h3>
+            <p class="mt-4 max-w-lg text-zinc-400">Créez des programmes par glisser-déposer, assignez-les en un clic et gardez un œil sur l'ensemble de vos clients depuis un tableau de bord unique.</p>
+            <ul class="mt-8 grid gap-4 sm:grid-cols-2">
+              <li class="rounded-xl border border-zinc-800/80 bg-zinc-900/30 p-4 transition hover:border-zinc-700">
+                <i data-lucide="mouse-pointer-2" class="h-4 w-4 text-violet-400"></i>
+                <div class="mt-3 text-sm font-medium text-white">Éditeur glisser-déposer</div>
+                <div class="mt-1 text-sm text-zinc-500">Bibliothèque de 900+ exercices et vos templates.</div>
+              </li>
+              <li class="rounded-xl border border-zinc-800/80 bg-zinc-900/30 p-4 transition hover:border-zinc-700">
+                <i data-lucide="gauge" class="h-4 w-4 text-violet-400"></i>
+                <div class="mt-3 text-sm font-medium text-white">Vue d'ensemble clients</div>
+                <div class="mt-1 text-sm text-zinc-500">Adhérence, alertes et progrès en un coup d'œil.</div>
+              </li>
+              <li class="rounded-xl border border-zinc-800/80 bg-zinc-900/30 p-4 transition hover:border-zinc-700">
+                <i data-lucide="credit-card" class="h-4 w-4 text-violet-400"></i>
+                <div class="mt-3 text-sm font-medium text-white">Paiements intégrés</div>
+                <div class="mt-1 text-sm text-zinc-500">Abonnements et facturation automatiques.</div>
+              </li>
+              <li class="rounded-xl border border-zinc-800/80 bg-zinc-900/30 p-4 transition hover:border-zinc-700">
+                <i data-lucide="bar-chart-3" class="h-4 w-4 text-violet-400"></i>
+                <div class="mt-3 text-sm font-medium text-white">Rapports détaillés</div>
+                <div class="mt-1 text-sm text-zinc-500">Exportez les bilans de vos athlètes en PDF.</div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="hairline mx-auto max-w-5xl"></div>
+
+    <!-- ============================== TARIFS ============================== -->
+    <section id="tarifs" class="relative scroll-mt-20 py-24 sm:py-32">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-2xl text-center">
+          <p class="reveal text-sm font-medium text-violet-400">Tarifs</p>
+          <h2 class="reveal mt-3 text-3xl font-semibold tracking-tight text-gradient sm:text-5xl">Un prix simple, qui grandit avec vous.</h2>
+          <p class="reveal mt-5 text-zinc-400">L'app mobile est toujours gratuite pour vos athlètes.</p>
+
+          <div class="reveal mt-10 inline-flex items-center gap-4 rounded-full border border-zinc-800/80 bg-zinc-900/40 px-5 py-2.5">
+            <span data-billing-label="monthly" class="text-sm transition">Mensuel</span>
+            <button id="billing-toggle" role="switch" aria-checked="false" aria-label="Facturation annuelle" class="relative h-6 w-11 rounded-full bg-zinc-800 transition-colors">
+              <span id="billing-knob" class="absolute left-0.5 top-0.5 h-5 w-5 rounded-full bg-white shadow transition-transform duration-300"></span>
+            </button>
+            <span data-billing-label="yearly" class="flex items-center gap-2 text-sm transition">Annuel <span class="rounded-full bg-violet-500/15 px-2 py-0.5 text-[11px] font-medium text-violet-300">−20 %</span></span>
+          </div>
+        </div>
+
+        <div class="mx-auto mt-14 grid max-w-6xl gap-6 lg:grid-cols-3 lg:items-stretch">
+          <!-- Starter -->
+          <div class="reveal glass glow-border flex flex-col rounded-2xl border border-zinc-800/80 p-8 transition hover:border-zinc-700">
+            <h3 class="text-base font-medium text-white">Starter</h3>
+            <p class="mt-1 text-sm text-zinc-500">Pour démarrer votre activité.</p>
+            <div class="mt-6 flex items-baseline gap-1">
+              <span class="text-4xl font-semibold tracking-tight text-white">0 €</span>
+              <span class="text-sm text-zinc-500">/mois</span>
+            </div>
+            <a href="#" class="mt-8 rounded-full border border-zinc-800 py-2.5 text-center text-sm font-medium text-white transition hover:border-zinc-700 hover:bg-zinc-900">Commencer gratuitement</a>
+            <ul class="mt-8 space-y-3 text-sm">
+              <li class="flex gap-3"><i data-lucide="check" class="h-4 w-4 shrink-0 text-zinc-400"></i>Jusqu'à 3 athlètes</li>
+              <li class="flex gap-3"><i data-lucide="check" class="h-4 w-4 shrink-0 text-zinc-400"></i>Programmation &amp; suivi des séances</li>
+              <li class="flex gap-3"><i data-lucide="check" class="h-4 w-4 shrink-0 text-zinc-400"></i>Messagerie</li>
+              <li class="flex gap-3 text-zinc-600"><i data-lucide="minus" class="h-4 w-4 shrink-0"></i>Suivi nutritionnel</li>
+            </ul>
+          </div>
+
+          <!-- Pro (populaire) -->
+          <div class="reveal glow-border glow-border-accent relative flex flex-col rounded-2xl bg-gradient-to-b from-violet-500/[.12] via-zinc-900/60 to-zinc-900/40 p-8 shadow-[0_0_80px_-20px_rgba(139,92,246,.5)] lg:-my-4 lg:py-12">
+            <span class="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full border border-violet-400/40 bg-violet-500 px-3 py-1 text-[11px] font-medium text-white shadow-[0_0_20px_rgba(139,92,246,.6)]">Le plus populaire</span>
+            <h3 class="text-base font-medium text-white">Pro</h3>
+            <p class="mt-1 text-sm text-zinc-400">Pour les coachs indépendants.</p>
+            <div class="mt-6 flex flex-wrap items-baseline gap-x-1">
+              <span class="text-4xl font-semibold tracking-tight text-white"><span data-price data-monthly="29" data-yearly="23">29</span> €</span>
+              <span data-period class="text-sm text-zinc-500">/mois</span>
+            </div>
+            <a href="#" class="group mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-violet-500 py-2.5 text-sm font-medium text-white shadow-[0_8px_30px_-6px_rgba(139,92,246,.7)] transition hover:bg-violet-400">
+              Essai gratuit de 14 jours <i data-lucide="arrow-right" class="h-4 w-4 transition group-hover:translate-x-0.5"></i>
+            </a>
+            <ul class="mt-8 space-y-3 text-sm text-zinc-200">
+              <li class="flex gap-3"><i data-lucide="check" class="h-4 w-4 shrink-0 text-violet-400"></i>Jusqu'à 30 athlètes</li>
+              <li class="flex gap-3"><i data-lucide="check" class="h-4 w-4 shrink-0 text-violet-400"></i>Tout le plan Starter</li>
+              <li class="flex gap-3"><i data-lucide="check" class="h-4 w-4 shrink-0 text-violet-400"></i>Nutrition, macros &amp; mensurations</li>
+              <li class="flex gap-3"><i data-lucide="check" class="h-4 w-4 shrink-0 text-violet-400"></i>Vidéos &amp; vocaux dans la messagerie</li>
+              <li class="flex gap-3"><i data-lucide="check" class="h-4 w-4 shrink-0 text-violet-400"></i>Paiements intégrés</li>
+            </ul>
+          </div>
+
+          <!-- Studio -->
+          <div class="reveal glass glow-border flex flex-col rounded-2xl border border-zinc-800/80 p-8 transition hover:border-zinc-700">
+            <h3 class="text-base font-medium text-white">Studio</h3>
+            <p class="mt-1 text-sm text-zinc-500">Pour les équipes et salles de sport.</p>
+            <div class="mt-6 flex flex-wrap items-baseline gap-x-1">
+              <span class="text-4xl font-semibold tracking-tight text-white"><span data-price data-monthly="79" data-yearly="63">79</span> €</span>
+              <span data-period class="text-sm text-zinc-500">/mois</span>
+            </div>
+            <a href="#" class="mt-8 rounded-full border border-zinc-800 py-2.5 text-center text-sm font-medium text-white transition hover:border-zinc-700 hover:bg-zinc-900">Contacter l'équipe</a>
+            <ul class="mt-8 space-y-3 text-sm">
+              <li class="flex gap-3"><i data-lucide="check" class="h-4 w-4 shrink-0 text-zinc-400"></i>Athlètes illimités</li>
+              <li class="flex gap-3"><i data-lucide="check" class="h-4 w-4 shrink-0 text-zinc-400"></i>Tout le plan Pro</li>
+              <li class="flex gap-3"><i data-lucide="check" class="h-4 w-4 shrink-0 text-zinc-400"></i>Jusqu'à 5 coachs</li>
+              <li class="flex gap-3"><i data-lucide="check" class="h-4 w-4 shrink-0 text-zinc-400"></i>App à vos couleurs</li>
+              <li class="flex gap-3"><i data-lucide="check" class="h-4 w-4 shrink-0 text-zinc-400"></i>Support prioritaire</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== FAQ ============================== -->
+    <section id="faq" class="relative scroll-mt-20 pb-24 sm:pb-32">
+      <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+        <div class="text-center">
+          <p class="reveal text-sm font-medium text-violet-400">FAQ</p>
+          <h2 class="reveal mt-3 text-3xl font-semibold tracking-tight text-gradient sm:text-4xl">Questions fréquentes</h2>
+        </div>
+
+        <div class="reveal mt-12 divide-y divide-zinc-800/80 rounded-2xl border border-zinc-800/80 bg-zinc-900/20">
+          <div class="faq-item">
+            <button class="flex w-full items-center justify-between gap-6 px-6 py-5 text-left" aria-expanded="false">
+              <span class="text-sm font-medium text-white sm:text-base">L'application mobile est-elle payante pour mes athlètes ?</span>
+              <i data-lucide="plus" class="faq-icon h-4 w-4 shrink-0 text-zinc-500 transition-transform duration-300"></i>
+            </button>
+            <div class="faq-content"><div class="overflow-hidden"><p class="px-6 pb-5 text-sm leading-relaxed text-zinc-400">Non. L'app iOS et Android est entièrement gratuite pour vos athlètes. Seul le coach souscrit à un abonnement.</p></div></div>
+          </div>
+          <div class="faq-item">
+            <button class="flex w-full items-center justify-between gap-6 px-6 py-5 text-left" aria-expanded="false">
+              <span class="text-sm font-medium text-white sm:text-base">Puis-je importer mes programmes existants ?</span>
+              <i data-lucide="plus" class="faq-icon h-4 w-4 shrink-0 text-zinc-500 transition-transform duration-300"></i>
+            </button>
+            <div class="faq-content"><div class="overflow-hidden"><p class="px-6 pb-5 text-sm leading-relaxed text-zinc-400">Oui, vous pouvez importer vos programmes depuis un fichier Excel ou Google Sheets, ou partir de nos templates PPL, Upper/Lower et Full Body.</p></div></div>
+          </div>
+          <div class="faq-item">
+            <button class="flex w-full items-center justify-between gap-6 px-6 py-5 text-left" aria-expanded="false">
+              <span class="text-sm font-medium text-white sm:text-base">Puis-je changer de plan à tout moment ?</span>
+              <i data-lucide="plus" class="faq-icon h-4 w-4 shrink-0 text-zinc-500 transition-transform duration-300"></i>
+            </button>
+            <div class="faq-content"><div class="overflow-hidden"><p class="px-6 pb-5 text-sm leading-relaxed text-zinc-400">Absolument. Passez au plan supérieur ou inférieur quand vous le souhaitez, la différence est calculée au prorata. Sans engagement.</p></div></div>
+          </div>
+          <div class="faq-item">
+            <button class="flex w-full items-center justify-between gap-6 px-6 py-5 text-left" aria-expanded="false">
+              <span class="text-sm font-medium text-white sm:text-base">Mes données et celles de mes clients sont-elles sécurisées ?</span>
+              <i data-lucide="plus" class="faq-icon h-4 w-4 shrink-0 text-zinc-500 transition-transform duration-300"></i>
+            </button>
+            <div class="faq-content"><div class="overflow-hidden"><p class="px-6 pb-5 text-sm leading-relaxed text-zinc-400">Les données sont chiffrées en transit et au repos, hébergées en Europe et traitées conformément au RGPD.</p></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== CTA FINAL ============================== -->
+    <section class="relative pb-24 sm:pb-32">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="reveal glow-border relative isolate overflow-hidden rounded-3xl border border-zinc-800/80 bg-zinc-900/40 px-6 py-16 text-center sm:px-16 sm:py-24">
+          <div class="bg-grid pointer-events-none absolute inset-0 -z-10 opacity-60"></div>
+          <div class="glow pointer-events-none absolute left-1/2 top-full -z-10 h-[400px] w-[700px] max-w-full -translate-x-1/2 -translate-y-1/2"></div>
+          <h2 class="mx-auto max-w-2xl text-3xl font-semibold tracking-tight text-gradient sm:text-5xl">Prêt à faire passer votre coaching au niveau supérieur ?</h2>
+          <p class="mx-auto mt-5 max-w-lg text-zinc-400">Rejoignez plus de 2 500 coachs qui ont choisi Omen. Configuration en moins de 5 minutes.</p>
+          <div class="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <a href="#tarifs" class="inline-flex w-full items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-medium text-zinc-950 transition hover:bg-zinc-200 sm:w-auto">Commencer gratuitement <i data-lucide="arrow-right" class="h-4 w-4"></i></a>
+            <a href="#produit" class="inline-flex w-full items-center justify-center gap-2 rounded-full border border-zinc-800 px-6 py-3 text-sm font-medium text-zinc-200 transition hover:border-zinc-700 hover:bg-zinc-900 sm:w-auto">Voir la démo</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================== FOOTER ============================== -->
+  <footer class="border-t border-zinc-800/80">
+    <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+      <div class="grid gap-12 md:grid-cols-5">
+        <div class="md:col-span-2">
+          <a href="#" class="flex items-center gap-2.5 text-white">
+            <span class="grid h-8 w-8 place-items-center rounded-lg border border-white/10 bg-gradient-to-b from-zinc-800 to-zinc-900">
+              <svg viewBox="0 0 24 24" class="h-4 w-4 text-violet-400" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17 10 11l4 4 6-8"/></svg>
+            </span>
+            <span class="text-[15px] font-semibold tracking-tight">Omen</span>
+          </a>
+          <p class="mt-4 max-w-xs text-sm text-zinc-500">L'écosystème tout-en-un pour les coachs sportifs et leurs athlètes.</p>
+          <div class="mt-6 flex gap-2">
+            <a href="#" aria-label="Instagram" class="grid h-9 w-9 place-items-center rounded-lg border border-zinc-800 text-zinc-400 transition hover:border-zinc-700 hover:text-white"><i data-lucide="instagram" class="h-4 w-4"></i></a>
+            <a href="#" aria-label="X / Twitter" class="grid h-9 w-9 place-items-center rounded-lg border border-zinc-800 text-zinc-400 transition hover:border-zinc-700 hover:text-white"><i data-lucide="twitter" class="h-4 w-4"></i></a>
+            <a href="#" aria-label="YouTube" class="grid h-9 w-9 place-items-center rounded-lg border border-zinc-800 text-zinc-400 transition hover:border-zinc-700 hover:text-white"><i data-lucide="youtube" class="h-4 w-4"></i></a>
+            <a href="#" aria-label="LinkedIn" class="grid h-9 w-9 place-items-center rounded-lg border border-zinc-800 text-zinc-400 transition hover:border-zinc-700 hover:text-white"><i data-lucide="linkedin" class="h-4 w-4"></i></a>
+          </div>
+        </div>
+        <div>
+          <h4 class="text-sm font-medium text-white">Produit</h4>
+          <ul class="mt-4 space-y-3 text-sm text-zinc-500">
+            <li><a href="#fonctionnalites" class="transition hover:text-zinc-300">Fonctionnalités</a></li>
+            <li><a href="#tarifs" class="transition hover:text-zinc-300">Tarifs</a></li>
+            <li><a href="#telecharger" class="transition hover:text-zinc-300">App mobile</a></li>
+            <li><a href="#" class="transition hover:text-zinc-300">Nouveautés</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-sm font-medium text-white">Ressources</h4>
+          <ul class="mt-4 space-y-3 text-sm text-zinc-500">
+            <li><a href="#" class="transition hover:text-zinc-300">Centre d'aide</a></li>
+            <li><a href="#" class="transition hover:text-zinc-300">Blog</a></li>
+            <li><a href="#faq" class="transition hover:text-zinc-300">FAQ</a></li>
+            <li><a href="#" class="transition hover:text-zinc-300">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-sm font-medium text-white">Légal</h4>
+          <ul class="mt-4 space-y-3 text-sm text-zinc-500">
+            <li><a href="#" class="transition hover:text-zinc-300">Mentions légales</a></li>
+            <li><a href="#" class="transition hover:text-zinc-300">Confidentialité</a></li>
+            <li><a href="#" class="transition hover:text-zinc-300">CGU / CGV</a></li>
+            <li><a href="#" class="transition hover:text-zinc-300">Cookies</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="mt-16 flex flex-col items-center justify-between gap-4 border-t border-zinc-800/80 pt-8 text-xs text-zinc-600 sm:flex-row">
+        <p>© <span id="year"></span> Omen. Tous droits réservés.</p>
+        <p class="flex items-center gap-1.5"><span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>Tous les systèmes sont opérationnels</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
